@@ -70,6 +70,9 @@ class Scanner {
         if (isDigit(c)) {
           number();
         }
+        else if (isAplpha(c)) {
+          identifier();
+        }
         else {
           Lox.error(line, "Unexpected character.");
         }
@@ -94,6 +97,14 @@ class Scanner {
 
   private boolean isDigit(char c) {
     return c >= '0' && c <= '9';
+  }
+
+  private boolean isAplpha(char c) {
+    return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '_';
+  }
+  
+  private boolean isAlphaNumeric(char c) {
+    return isAplpha(c) || isDigit(c);
   }
 
   private char advance() {
@@ -152,6 +163,12 @@ class Scanner {
     }
 
     addToken(NUMBER, Double.parseDouble(source.substring(start, current)));
+  }
+
+  private void identifier() {
+    while (isAlphaNumeric(peek())) advance();
+
+    addToken(IDENTIFIER);
   }
 }
 
