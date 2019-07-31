@@ -64,6 +64,8 @@ class Scanner {
       case '\t': break;
       case '\n': line++; break;
       
+      case '"': string(); break;
+      
       default:
         Lox.error(line, "Unexpected character.");
         break;
@@ -93,6 +95,26 @@ class Scanner {
 
     current++;
     return true;
+  }
+
+  private void string() {
+    while (peek() != '"' && !isAtEnd()) {
+      if (peek() == '\n') line++;
+      advance();
+    }
+
+    // Unterminated string
+    if (isAtEnd()) {
+      Lox.error(line, "Unterminated String.");
+      return;
+    }
+
+    // Closing "
+    advance();
+
+    // Trim quotes
+    String vaslue = source.substring(start + 1, current - 1);
+    addToken(STRING, value);
   }
 
   private void addToken(TokenType type) {
