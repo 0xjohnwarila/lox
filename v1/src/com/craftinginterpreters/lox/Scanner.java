@@ -197,4 +197,3 @@ class Scanner {
     addToken(type);
   }
 }
-
