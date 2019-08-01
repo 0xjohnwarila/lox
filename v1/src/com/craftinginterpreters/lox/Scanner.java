@@ -160,7 +160,7 @@ class Scanner {
     advance();
 
     // Trim quotes
-    String vaslue = source.substring(start + 1, current - 1);
+    String value = source.substring(start + 1, current - 1);
     addToken(STRING, value);
   }
 

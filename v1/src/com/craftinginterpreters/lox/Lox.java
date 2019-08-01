@@ -50,7 +50,7 @@ public class Lox {
 
     // Temp: just print tokens
     for (Token token : tokens) {
-      System.out.prinln(token);
+      System.out.println(token);
     }
   }
 
@@ -59,7 +59,7 @@ public class Lox {
   }
 
   private static void report(int line, String where, String message) {
-    System.err.prinln(
+    System.err.println(
       "[line " + line + "] Error" + where + ": " + message
     );
     hadError = true;
