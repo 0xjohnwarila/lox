@@ -15,11 +15,25 @@ class Environment {
     this.enclosing = enclosing;
   }
 
-  void define(String name, Object value) {
+  public Object getAt(int distance, String name) {
+    return ancestor(distance).values.get(name);
+  }
+
+  public void assignAt(int distance, Token name, Object value) {
+    ancestor(distance).values.put(name.lexeme, value);
+  }
+
+  public void define(String name, Object value) {
     values.put(name, value);
   }
 
-  Object get(Token name) {
+  public Environment ancestor(int distance) {
+    Environment environment = this;
+    for (int i = 0; i < distance; i++) environment = environment.enclosing;
+    return environment;
+  }
+
+  public Object get(Token name) {
     if (values.containsKey(name.lexeme)) {
       return values.get(name.lexeme);
     }
