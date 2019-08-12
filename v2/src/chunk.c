@@ -13,6 +13,14 @@ void initChunk(Chunk* chunk) {
 }
 
 /*
+free a chunk from memory
+*/
+void freeChunk(Chunk* chunk) {
+  FREE_ARRAY(uint8_t, chunk->code, chunk->capacity);
+  initChunk(chunk);
+}
+
+/*
 write some data into chunk
 */
 void writeChunk(Chunk* chunk, uint8_t byte) {
