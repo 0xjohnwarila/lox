@@ -26,7 +26,7 @@ static char* readFile(const char* path) {
         // Open file
         FILE* file = fopen(path, "rb");
         // Check if the file opened properly
-        if (file = NULL) {
+        if (file == NULL) {
                 fprintf(stderr, "Could not open file \"%s\".\n", path);
                 exit(74);
         }
@@ -51,7 +51,7 @@ static char* readFile(const char* path) {
                 fprintf(stderr, "Could not read file \"%s\".\n", path);
                 exit(74);
         }
-        
+
         // Write the null character to the end of the buffer
         buffer[bytes_read] = '\0';
 
