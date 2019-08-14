@@ -1,5 +1,5 @@
-#ifndef INCLUDES_MEMORY_H
-#define INCLUDES_MEMORY_H
+#ifndef MEMORY_H
+#define MEMORY_H
 
 /*
 if capacity is less than 8, set capacity to 8

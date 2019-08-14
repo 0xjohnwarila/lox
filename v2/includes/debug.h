@@ -1,5 +1,5 @@
-#ifndef INCLUDES_DEBUG_H
-#define INCLUDES_DEBUG_H
+#ifndef DEBUG_H
+#define DEBUG_H
 
 #include "chunk.h"
 

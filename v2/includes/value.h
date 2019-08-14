@@ -1,5 +1,5 @@
-#ifndef INLCUDES_VALUE_H
-#define INCLUDES_VALUE_H
+#ifndef VALUE_H
+#define VALUE_H
 
 #include "common.h"
 
