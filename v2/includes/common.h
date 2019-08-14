@@ -7,5 +7,6 @@
 
 // Activates diagnostic logging when flag is on
 #define DEBUG_TRACE_EXECUTION
+#define DEBUG_PRINT_CODE
 
 #endif
