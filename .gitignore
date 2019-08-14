@@ -23,3 +23,9 @@
 hs_err_pid*
 
 .vscode/
+
+#obj
+*.o
+
+#executable
+main
