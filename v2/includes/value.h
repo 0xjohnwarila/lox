@@ -10,12 +10,12 @@ typedef enum {
 } ValueType;
 
 typedef struct {
-	Value type;
-	union as
+	ValueType type;
+	union
 	{
 		bool boolean;
 		double number;
-	};
+	} as;
 } Value;
 
 /*
@@ -30,14 +30,14 @@ typedef struct {
  */
 
 // Type checking
-#define IS_BOOL(value)    ((Value).type == VAL_BOOL))
-#define IS_NIL(value)     ((Value).type == VAL_NIL))
-#define IS_NUMBER(value)  ((Value).type == VAL_NUMBER)
+#define IS_BOOL(value)    ((value).type == VAL_BOOL)
+#define IS_NIL(value)     ((value).type == VAL_NIL)
+#define IS_NUMBER(value)  ((value).type == VAL_NUMBER)
 
 // Convert from Value type to C type
 
-#define AS_BOOL(value)    ((Value).as.boolean)
-#define AS_NUMBER(value)  ((Value).as.number)
+#define AS_BOOL(value)    ((value).as.boolean)
+#define AS_NUMBER(value)  ((value).as.number)
 
 // Convert from C type to Value type
 #define BOOL_VAL(value)   ((Value){ VAL_BOOL, { .boolean = value } })
